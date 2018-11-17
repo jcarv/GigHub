@@ -205,9 +205,20 @@
     <Compile Include="Migrations\201811171931020_InitialModel.Designer.cs">
       <DependentUpon>201811171931020_InitialModel.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201811172254365_CreateGigTable.cs" />
+    <Compile Include="Migrations\201811172254365_CreateGigTable.Designer.cs">
+      <DependentUpon>201811172254365_CreateGigTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201811172311471_OverrideConventionsForGigsAndGenres.cs" />
+    <Compile Include="Migrations\201811172311471_OverrideConventionsForGigsAndGenres.Designer.cs">
+      <DependentUpon>201811172311471_OverrideConventionsForGigsAndGenres.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\ApplicationDbContext.cs" />
+    <Compile Include="Models\Genre.cs" />
+    <Compile Include="Models\Gig.cs" />
+    <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -226,6 +237,7 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Models\Genre" />
     <None Include="Scripts\jquery-3.3.1-vsdoc.js" />
     <Content Include="Scripts\jquery-3.3.1.js" />
     <Content Include="Scripts\jquery-3.3.1.min.js" />
@@ -291,6 +303,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201811171931020_InitialModel.resx">
       <DependentUpon>201811171931020_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811172254365_CreateGigTable.resx">
+      <DependentUpon>201811172254365_CreateGigTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201811172311471_OverrideConventionsForGigsAndGenres.resx">
+      <DependentUpon>201811172311471_OverrideConventionsForGigsAndGenres.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
