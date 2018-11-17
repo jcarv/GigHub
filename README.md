@@ -75,3 +75,27 @@ Another example would be the **Gig Calendar**. Since we have **Add a gig to cale
 
     These use cases were chosen so we can build a piece of funcionality end to end, helping us build the skeleton of our application while adding new features to it.
     Once the skeleton is ready we can write automated tests using selenium to test the application funcionality end to end.
+
+## Making design decisions
+
+**Example:** Dropdown with possible genres for the user to select.
+
+**Options:** 
+- Implementing a page for an admin to manage the list of genres
+- Create an SQL script that populates the genre table.
+
+Wich solution is better?
+
+First, it's worth to note that implementing this page is outside of the project scope and this is one of the common issues amongst software developers, starting with a clear objective and ending up somewhere else.
+
+So in situations like this, before adding anything to the scope of the project we should ask ourselves:
+
+*What is the **cost** of each solution and what are the **benefits**?*
+
+Admin Page:
+- **Pros**: flexible (An admin can always add a new genre to the list without the developers involvment)
+- **Cons**: costly (It is a lot more costly then simply writing a SQL script to populate the genres table)
+
+In reality we have a limited number of music styles and it doesn't change that often, so implementing the Admin page is an overkill, waste of developer time and project budget.
+
+**It's our job as software engineers to make such design decisions. We shouldn't rely in the business or the client to tell us wich solution is better, because often the client or the business will pick the Admin page because of the flexibility it gives them, but they may not take into account that the likelyhood of them needing this page in reality is very low. The result will be the scope of the project changing and the developer ends up in an endless loop of adding new features, passing the deadlines, working harder, under pressure and stress unable to create quality software, releasing many features without quality testing.**
