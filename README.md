@@ -99,3 +99,9 @@ Admin Page:
 In reality we have a limited number of music styles and it doesn't change that often, so implementing the Admin page is an overkill, waste of developer time and project budget.
 
 **It's our job as software engineers to make such design decisions. We shouldn't rely in the business or the client to tell us wich solution is better, because often the client or the business will pick the Admin page because of the flexibility it gives them, but they may not take into account that the likelyhood of them needing this page in reality is very low. The result will be the scope of the project changing and the developer ends up in an endless loop of adding new features, passing the deadlines, working harder, under pressure and stress unable to create quality software, releasing many features without quality testing.**
+
+## View Model Pattern
+
+View models are used in situations when what we want to display to the user is different from the model of the domain.
+
+- A view model class gives us a clean separation between UI and domain
