@@ -144,3 +144,20 @@ And decorate the target action with the following attribute:
     public ActionResult Create()
 
 Using this approach, because we decorated our action with the ValidateAntiForgeryToken, when we post this action to the server, ASP dot NET MVC will compare the encripted hidden field of the form with the value of the cookie, and if they're not the same then it's a CSRF (You can test this by using the inspector in chrome and changing the value of the token that is in the form).
+
+## Usability Best Practices
+
+**Labels**
+- Keep them short
+- Be concise
+- Don't use ambiguous words
+- Use top align or if vertical space is an issue use right align
+
+**Fields**
+- Reduce the number of fields
+- Avoid optional fields (Capture only what is really required)
+- If you still have optional fields, visually separate them from mandatory fields
+- If you have a considerable number of fields in your form, group them in a way that logically makes sense
+- If after all of the above it is still not sufficient, break the entire form into a wizard showing an indicator as the user progresses through the wizard
+- Specify the format (Example: if any field requires data, you should clearly highlight that to the user)
+- Set focus on the first field
