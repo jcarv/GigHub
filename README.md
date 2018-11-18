@@ -105,3 +105,42 @@ In reality we have a limited number of music styles and it doesn't change that o
 View models are used in situations when what we want to display to the user is different from the model of the domain.
 
 - A view model class gives us a clean separation between UI and domain
+
+## Separation of Concerns
+
+Making a **controller responsible for parsing** a string value into a DateTime object **is not the responsibility of the controller**. A controller should act as a coordinator for the application logic, "What should happen next", that's the job of the controller. Parsing values is too detailed for the controller to know. In object oriented programming we have a principle called **Information Expert**, which means that a class/object that has the information to do something should be the one that carries that responsibility.
+
+## Common Web Application Vulnerabilities
+
+- SQL Injection
+
+Using EF to generate our SQL queries generally prevents attacks of this nature, but if instead we use the SqlQuery method of a dbset and generated sql statements using string concatenation we could open our application to this vulnerability. 
+
+- XSS
+
+**Enables an attacker to execute malicious script on the victim's computer.**
+
+The primary way to disable cross-site scripting attacks is to escape content, which tells the browser to treat the content as a simple string and not interpret it in any other way.
+
+ASP dot NET MVC applications by default have a protection mechanism that detects javascript in the input fields of a form, unless explicitly disabled in the webconfig.
+
+Razor views by default automaticly escape content. The only exception is: Html.Raw()
+
+- Cross-site Request Forgery (CSRF)
+
+**Allows an attacker to perform actions on behalf of a user without their knowledge.**
+
+Preventing this attack in ASP.NET MVC is quite easy. All we have to do is call the following in our forms:
+
+    using (Html.BeginForm())
+    {
+         @Html.AntiForgeryToken()
+    }
+
+
+And decorate the target action with the following attribute:
+
+    [ValidateAntiForgeryToken]
+    public ActionResult Create()
+
+Using this approach, because we decorated our action with the ValidateAntiForgeryToken, when we post this action to the server, ASP dot NET MVC will compare the encripted hidden field of the form with the value of the cookie, and if they're not the same then it's a CSRF (You can test this by using the inspector in chrome and changing the value of the token that is in the form).
