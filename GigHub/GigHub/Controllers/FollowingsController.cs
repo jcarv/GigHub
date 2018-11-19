@@ -16,7 +16,7 @@ namespace GigHub.Controllers
         }
 
         [HttpPost]
-        public IHttpActionResult Follow(FollowingDto dto)
+        public IHttpActionResult Following(FollowingDto dto)
         {
             var userId = User.Identity.GetUserId();
 
